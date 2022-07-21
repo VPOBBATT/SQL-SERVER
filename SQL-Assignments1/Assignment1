@@ -1,0 +1,13 @@
+5. select * from Customer
+
+6. select * from  Customer where Country LIKE 'A%' OR Country LIKE 'I%'
+
+[or]
+
+select * from Customer where Country like '[A_I]%';
+
+7. select * from Customer where FirstName  LIKE '__i%'
+
+[or]
+
+select * from Customer where CHARINDEX('i',FirstName)=3;
