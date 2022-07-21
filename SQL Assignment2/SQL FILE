@@ -1,0 +1,39 @@
+1.  select * from Customer where Country='Germany'
+
+2.  select FullName from Employee
+
+3. select FirstName ,Country,Phone,FaxNumber
+	from Customer
+	JOIN Orders
+	on Customer.Id=Orders.CustomerId
+	where Customer.FaxNumber is NOt null
+
+4. select * from Customer where FirstName Like '_U%'
+
+5. select * from  Oder Where UnitPrice BETWEEN 11 AND 19
+
+6. select * from oder ORDER BY OrderDate ASC
+
+7. select * from Product where ShippingName='La corne d abondance' and ShipDate between '2022-07-23' and '2022-09-01'
+
+8. select * from Product where ProductName = 'ExoticLiquid'
+
+9. select AVG(Quantity) from OrderItem
+
+10.  alter table Product add ShippingCompanyName nvarchar(50);
+		
+		select ShippingName,ShippingCompanyName from Product;
+
+
+
+11. select  FullName ,ManagerName from Employee
+
+12.  select OrderId ,ProductName,Category ,UnitPrice,Discount from Product Where OrderId = 102
+
+13.	select ShippingName ,ProductName ,Product.UnitPrice ,orders.TotalAmount
+	from Product
+	JOIN	Orders
+	ON Product.Id=Orders.ProductId
+	where  Product.UnitPrice>50  and ProductName = 'ExoticLiquid'
+  
+  
