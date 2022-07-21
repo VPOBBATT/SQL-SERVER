@@ -1,0 +1,53 @@
+1. select ShippingName ,ProductName ,Product.UnitPrice ,oder.TotalAmount
+	from Product
+	JOIN	Oder
+	ON Product.Id=Oder.ProductId
+	where  Product.UnitPrice>50  and ProductName = 'ExoticLiquid'
+
+
+2. alter table Employee add JoinedDate datetime;
+	
+	select * from Employee Order by JOinedDate;
+
+
+3. select * from Employee Order by JOinedDate DESC;
+
+
+
+4.  select Id, ProductName , UnitPrice from Product where UnitPrice=(select Max(UnitPrice) from Product)
+
+    select Id, ProductName , UnitPrice from Product where UnitPrice=(select min(UnitPrice) from Product)
+
+5.  select * from Product where ((IsDiscontinued)=0)
+
+6.	alter table Product add UnitInStock int;
+	
+	alter table Product add UnitOnOrder int;
+
+	select ProductName,UnitOnOrder,UnitInStock from Product where (((IsDiscontinued)=0) AND ((UnitInStock)<UnitOnOrder))
+
+7. select Category,SupplierName from Product;
+
+
+8. select FirstName ,(Orders.Id) as OrderId,Orders.OrderDate from Customer
+	Join Orders
+	on Customer.Id=Orders.CustomerId
+
+9.  create  view vWCustomerCount
+	as
+	select Customer.FirstName , ProductName, count(*) as TotalOrder
+	from  Product
+	join Customer
+	on Product.Id = Customer.ProductId
+	group by Customer.FirstName , ProductName
+
+	select FirstName , ProductName,TotalOrder from vWCustomerCount
+	WHERE TotalOrder>=2
+
+10.  select ID from Customer where 
+	substring(FirstName,len(FirstName)-1,2)='RA';
+
+11.	alter table Product add ShippingName nvarchar(50);
+	select Substring(ShippingName,1,6) as FirstWord from Product;
+  
+  
