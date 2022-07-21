@@ -1,0 +1,9 @@
+1. select * from Customer where Phone = '030-0074321'
+
+2. select * from Product where Category ='Seafood'
+
+3. select * from Customer where Country != 'London'
+
+4. select * from Product where ProductName = 'Chai'
+
+5. select FullName,DepartmentName ,Rating from Employee where FullName ='Muskan'
